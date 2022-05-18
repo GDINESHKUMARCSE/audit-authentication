@@ -16,6 +16,7 @@ import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.sql.SQLOutput;
 
 @RestController
+@CrossOrigin
 public class AuthenticationController {
 
     @Autowired
@@ -25,7 +26,6 @@ public class AuthenticationController {
     JwtUtil jwtUtil;
 
     @PostMapping("/login")
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<?> login(@RequestBody User user) {
         System.out.println(user);
         UserDetails userRecord = authService.loadUserByUsername(user.getUserName());
